@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voting Community</title>
+    <link rel="stylesheet" href="web.css">
+    <script src = "web.js"></script>
+</head>
+<body>
+    <div id="login-form">
+        <h2>Login</h2>
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <button onclick="login()">Login</button>
+    </div>
+
+    <div id="voting-section" style="display: none;">
+        <h2>Vote for your candidate:</h2>
+        <select id="candidates">
+            <option value="candidate1">Candidate 1</option>
+            <option value="candidate2">Candidate 2</option>
+            <!-- Add more candidates if needed -->
+        </select>
+        <button onclick="vote()">Vote</button>
+    </div>
+
+    <script>
+        let loggedIn = false;
+
+        function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Replace with actual authentication logic
+            if (username === 'user' && password === 'password') {
+                loggedIn = true;
+                document.getElementById('login-form').style.display = 'none';
+                document.getElementById('voting-section').style.display = 'block';
+            } else {
+                alert('Invalid username or password');
+            }
+        }   
+
+        function vote() {
+            if (!loggedIn) {
+                alert('Please login first');
+                return;
+            }
+
+            const selectedCandidate = document.getElementById('candidates').value;
+
+            // Replace with actual voting logic
+            alert(`You voted for ${selectedCandidate}`);
+        }
+    </script>
+</body>
